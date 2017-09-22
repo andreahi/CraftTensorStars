@@ -7,9 +7,9 @@ def runAgent(render=False):
                "--agent_race Z " \
                "--max_agent_steps 0 " \
                "--game_steps_per_episode 20000 " \
-               "--map Flat32 " \
+               "--map Simple64 " \
                "--agent agent.simple_agent_keras.RandomAgent " \
-               "--step_mul 10 "\
+               "--step_mul 200 "\
                "--parallel 1 "+ \
               ("--render True" if render else "--norender")
 

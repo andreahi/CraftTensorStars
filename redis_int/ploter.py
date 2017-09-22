@@ -20,17 +20,17 @@ while True:
     plt.clf()
     plt.scatter(range(len(y)), y)
 
-    if len(y)>50:
-        average.append(np.average(y[-50:]))
-        plt.scatter(range(len(average)), average)
+    average.append(np.average(y[-50:]))
+    plt.scatter(range(len(average)), average)
+    print "average :", np.average(y[-50:])
 
     plt.axis()
     plt.ion()
 
-    plt.pause(0.05)
+    plt.pause(0.0005)
     count += 1
 
     if len(y) > 500:
         del y[0]
+    if len(average) > 500:
         del average[0]
-    print "average :", np.average(y)
