@@ -39,7 +39,7 @@ class RandomAgent(base_agent.BaseAgent):
   def reset(self):
     super(RandomAgent, self).reset()
     if self.last_score != 0:
-      send_zipped_pickle(self.socket, ["finished",[], self.last_score/10000.0 * self.last_score/10000.0], key="from_agent" + self.id)
+      send_zipped_pickle(self.socket, ["finished",[], self.last_score/10000.0], key="from_agent" + self.id)
       send_zipped_pickle(self.socket, self.last_score, key="score")
 
     #start a new episode
