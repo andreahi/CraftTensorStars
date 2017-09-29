@@ -33,13 +33,13 @@ class RandomAgent(base_agent.BaseAgent):
   def __init__(self):
     self.steps_counter = 0
     self.id = str(random.randint(0, 10000000))
-    self.socket = redis.StrictRedis(host='192.168.0.17', port=6379, db=0)
+    self.socket = redis.StrictRedis(host='192.168.0.18', port=6379, db=0)
     self.last_score = 0
 
   def reset(self):
     super(RandomAgent, self).reset()
     if self.last_score != 0:
-      send_zipped_pickle(self.socket, ["finished",[], self.last_score/10000.0], key="from_agent" + self.id)
+      send_zipped_pickle(self.socket, ["finished",[], self.last_score/1000.0], key="from_agent" + self.id)
       send_zipped_pickle(self.socket, self.last_score, key="score")
 
     #start a new episode
