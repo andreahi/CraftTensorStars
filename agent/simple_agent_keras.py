@@ -34,7 +34,7 @@ class RandomAgent(base_agent.BaseAgent):
     super(RandomAgent, self).__init__()
     self.steps_counter = 0
     self.id = str(random.randint(0, 10000000))
-    self.socket = redis.StrictRedis(host='192.168.0.18', port=6379, db=0)
+    self.socket = redis.StrictRedis(host='192.168.0.15', port=6379, db=0)
     self.last_score = 0
 
   def reset(self):
