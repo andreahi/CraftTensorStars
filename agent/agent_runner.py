@@ -1,6 +1,6 @@
 import sys
 
-from runner import run
+from .runner import run
 
 def runAgent(render=False):
     agent_args = "--bot_race P " \
