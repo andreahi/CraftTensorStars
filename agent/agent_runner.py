@@ -8,7 +8,7 @@ def runAgent(render=False):
                "--difficulty 1 " \
                "--max_agent_steps 0 " \
                "--game_steps_per_episode 20000 " \
-               "--map Flat32  " \
+               "--map Simple64  " \
                "--agent agent.simple_agent_keras.RandomAgent " \
                "--step_mul 50 "\
                "--parallel 1 "+ \
