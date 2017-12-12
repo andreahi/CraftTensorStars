@@ -10,7 +10,7 @@ if __name__ == '__main__':
     count = 8
     pool = multiprocessing.Pool(processes=count)
     try:
-        results = pool.map_async(work, range(count)).get(9999)
+        results = pool.map_async(work, range(count)).get()
 
     except KeyboardInterrupt:
         pool.terminate()
