@@ -43,11 +43,14 @@ class RandomAgent(base_agent.BaseAgent):
       send_zipped_pickle(self.socket, ["finished",[], self.last_score/10000.0], key="from_agent" + self.id)
       send_zipped_pickle(self.socket, self.last_score, key="score")
 
-    #start a new episode
-    self.id = str(random.randint(0, 10000000))
-    send_zipped_pickle(self.socket, [self.id, []], key="episode") # send action_spec here. not implemented because of serialization error
-    self.last_score = 0
+    self.init_communicaton()
 
+  def init_communicaton(self):
+    # start a new episode
+    self.id = str(random.randint(0, 10000000))
+    send_zipped_pickle(self.socket, [self.id, []],
+                       key="episode")  # send action_spec here. not implemented because of serialization error
+    self.last_score = 0
 
   def step(self, obs):
     score = obs[3]['score_cumulative'][0]

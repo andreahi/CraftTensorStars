@@ -10,7 +10,7 @@ def runAgent(render=False):
                "--game_steps_per_episode 20000 " \
                "--map Simple64  " \
                "--agent agent.simple_agent_keras.RandomAgent " \
-               "--step_mul 50 "\
+               "--step_mul 200 "\
                "--parallel 1 "+ \
               ("--render True" if render else "--norender")
 
