@@ -50,11 +50,13 @@ class RandomAgent(base_agent.BaseAgent):
 
 
   def step(self, obs):
-    score = obs[3]['score_cumulative'][0]
+    score = obs[3]['score_cumulative'][0] + 2*obs[3]['score_cumulative'][5] + 2*obs[3]['score_cumulative'][6] + obs[3]['score_cumulative'][11] + obs[3]['score_cumulative'][12]
+    if obs[3]['score_cumulative'][8] > 0:
+      print("I found vespene: ", obs[3]['score_cumulative'][8])
     #score = obs[3]['score_cumulative'][5]
     send_zipped_pickle(self.socket, ["not_finished", obs, 0], key="from_agent" + self.id)
     data = recv_zipped_pickle(self.socket, key="from_brain" + self.id)
-
+    print(data)
     if obs[0] == StepType.FIRST:
       self.last_score = score
     send_zipped_pickle(self.socket, 0, key="reward" + self.id)
